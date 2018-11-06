@@ -33,7 +33,7 @@ public class Product {
     public String getProductName() {
         return _productname;
     }
-    public void setPrice(double price) {
+    public void setPrice(int price) {
         _price = price;
     }
     public double getPrice() {
