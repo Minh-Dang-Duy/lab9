@@ -122,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String name = editTextName.getText().toString().trim();
-                double price = Double.parseDouble(String.valueOf(editTextPrice.getText().toString()));
+                int price = (int) Double.parseDouble(String.valueOf(editTextPrice.getText().toString()));
                 if (!TextUtils.isEmpty(name)) {
                     updateProduct(productId, name, price);
                     b.dismiss();
@@ -139,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void updateProduct(String id, String name, double price) {
+    private void updateProduct(String id, String name, int price) {
         //getting the specified product reference
         DatabaseReference dR = FirebaseDatabase.getInstance().getReference("products").child(id);
         //updating product
@@ -170,7 +170,7 @@ public class MainActivity extends AppCompatActivity {
             String id = databaseProducts.push().getKey();
 
             //creating an Product Object
-            Product product = new Product(id, name, price);
+            Product product = new Product(id, name, (int) price);
 
             //Saving the Product
             databaseProducts.child(id).setValue(product);

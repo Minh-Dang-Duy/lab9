@@ -36,8 +36,8 @@ public class Product {
     public void setPrice(int price) {
         _price = price;
     }
-    public double getPrice() {
-        return _price;
+    public String getPrice() {
+        return Integer.toString(_price);
     }
 }
 
